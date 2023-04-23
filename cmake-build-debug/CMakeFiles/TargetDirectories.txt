@@ -1,0 +1,6 @@
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/CMakeFiles/Matrix.dir
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/Matrix_Operations/CMakeFiles/Matrix_Operations.dir
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/Matrix_Operations/CMakeFiles/edit_cache.dir
+/Users/gr/Desktop/C/Matrix/cmake-build-debug/Matrix_Operations/CMakeFiles/rebuild_cache.dir

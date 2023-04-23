@@ -1,0 +1,8 @@
+# ninja log v5
+0	27	1682231659602679020	CMakeFiles/Matrix.dir/main.c.o	ffd14101a9262f34
+0	52	1682231659627051920	Matrix_Operations/CMakeFiles/Matrix_Operations.dir/Matrix_Operations.c.o	7daf816b31ab4cdc
+52	72	1682231659648889000	Matrix_Operations/libMatrix_Operations.a	ee3189c65d25b70c
+1	35	1682231752564027287	CMakeFiles/Matrix.dir/main.c.o	ffd14101a9262f34
+35	79	1682231752607794931	Matrix	df6843ac1a7f94a3
+1	29	1682231822300613440	CMakeFiles/Matrix.dir/main.c.o	ffd14101a9262f34
+29	70	1682231822341664192	Matrix	df6843ac1a7f94a3
