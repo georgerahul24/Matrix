@@ -14,13 +14,18 @@ int main() {
 
     printf("The  Matrix A and Matrix B are %d and %d\n", is_sparse(&MatrixA), is_sparse(&MatrixB));
 
-    Matrix *sMatrixA, *sMatrixB;
+    sMatrix *sMatrixA, *sMatrixB,*sMatrixC;
     sMatrixA = create_sparse(&MatrixA);
-    printMatrix(sMatrixA,
-                "Sparse Matrix A:\n");
+    printSparseMatrix(sMatrixA,
+                      "Sparse Matrix A:\n");
 
     sMatrixB = create_sparse(&MatrixB);
-    printMatrix(sMatrixB,
-                "Sparse Matrix B:\n");
+    printSparseMatrix(sMatrixB,
+                      "Sparse Matrix B:\n");
+
+    sMatrixC= transpose_sparse(sMatrixA);
+    printSparseMatrix(sMatrixC,
+                      "Sparse Matrix C:\n");
+
 }
 

@@ -41,6 +41,7 @@ void printMatrix(Matrix *matrix, const char *string) {
     }
 }
 
+
 int open_file(const char *filename, FILE **f) {
     *f = fopen(filename, "r");
 
@@ -81,8 +82,8 @@ int is_sparse(Matrix *matrix) {
            ((matrix->M * matrix->N) / 2 != 0) ? 1 : -1;
 }
 
-Matrix *create_sparse(Matrix *matrix) {
-    Matrix *sparseMatrix = (Matrix *) malloc(sizeof(Matrix));
+sMatrix *create_sparse(Matrix *matrix) {
+    sMatrix *sparseMatrix = (sMatrix *) malloc(sizeof(sMatrix));
 
     int number_of_zeros = count_zeros(matrix);
 
@@ -90,6 +91,8 @@ Matrix *create_sparse(Matrix *matrix) {
     int M = (matrix->M * matrix->N) - number_of_zeros;
     sparseMatrix->M = M;
     sparseMatrix->N = N;
+    sparseMatrix->org_M = matrix->M;
+    sparseMatrix->ord_N = matrix->N;
 
     int **matrixA = (int **) malloc(sizeof(int *) * M);
     int row_counter = 0;
@@ -111,6 +114,55 @@ Matrix *create_sparse(Matrix *matrix) {
     return sparseMatrix;
 
 
+}
+
+void printSparseMatrix(sMatrix *matrix, const char *string) {
+    /**
+     * Print the matrix
+     */
+    printf(string);
+
+    for (int i = 0; i < matrix->M; i++) {
+        for (int j = 0; j < matrix->N; j++) {
+            printf("%d ", matrix->matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+sMatrix *transpose_sparse(sMatrix *matrix) {
+    sMatrix *sparse_matrix = (sMatrix *) malloc(sizeof(sMatrix));
+    sparse_matrix->M = matrix->M;
+    sparse_matrix->N = matrix->N;
+    sparse_matrix->org_M = matrix->ord_N;
+    sparse_matrix->ord_N = matrix->org_M;
+    sparse_matrix->matrix= create_Matrix(sparse_matrix->M,sparse_matrix->N);
+    int row_index = 0;
+
+    for (int nth = 0; nth < matrix->ord_N; nth++) {
+        for (int mth = 0; mth < matrix->M; mth++) {
+            if (matrix->matrix[mth][1] == nth) {
+                sparse_matrix->matrix[row_index][0] = matrix->matrix[mth][1];
+                sparse_matrix->matrix[row_index][1] = matrix->matrix[mth][0];
+                sparse_matrix->matrix[row_index++][2] = matrix->matrix[mth][2];
+            }
+        }
+    }
+
+    return sparse_matrix;
+
+
+}
+
+int **create_Matrix(int M, int N) {
+    int **matrix = (int **) malloc(sizeof(int *) * M);
+
+    for (int i = 0; i < M; i++) {
+        matrix[i] = (int *) malloc(sizeof(int) * N);
+
+    }
+    return matrix;
 }
 
 

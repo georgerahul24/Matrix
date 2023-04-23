@@ -10,6 +10,13 @@ typedef struct Matrix {
     int **matrix;
 } Matrix;
 
+typedef struct Sparse_Matrix {
+    int org_M;
+    int ord_N;
+    int M;
+    int N;
+    int **matrix;
+} sMatrix;
 
 int open_file(const char *filename, FILE **f);
 
@@ -25,6 +32,12 @@ void read_Matrix(Matrix *matrix, FILE *f1);
 
 int is_sparse(Matrix *matrix);
 
-Matrix * create_sparse(Matrix *matrix);
+sMatrix *create_sparse(Matrix *matrix);
+
+void printSparseMatrix(sMatrix *matrix, const char *string);
+
+sMatrix *transpose_sparse(sMatrix *matrix);
+
+int **create_Matrix(int M, int N);
 
 #endif //MATRIX_IN_C_LIBRARY_H
