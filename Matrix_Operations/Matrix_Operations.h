@@ -40,4 +40,22 @@ sMatrix *transpose_sparse(sMatrix *matrix);
 
 int **create_Matrix(int M, int N);
 
+int *create_row(int cols) {
+    return (int *) malloc(sizeof(int) * 3);
+}
+
+sMatrix addSparseMatrix(sMatrix *sMatrix1, sMatrix *sMatrix2) {
+
+    int **matrix = create_Matrix(sMatrix1->M + sMatrix2->M, 3);
+    int i = 0, j = 0, k = 0;
+
+    while (i < sMatrix1->M && j < sMatrix2->M) {
+        if (sMatrix1->matrix[i][0]==sMatrix2->matrix[j][0]){
+
+        }
+    }
+
+
+}
+
 #endif //MATRIX_IN_C_LIBRARY_H

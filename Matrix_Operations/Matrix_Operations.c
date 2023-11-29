@@ -101,6 +101,7 @@ sMatrix *create_sparse(Matrix *matrix) {
         for (int j = 0; j < matrix->N; j++) {
             if (matrix->matrix[i][j] != 0) {
                 int *row = (int *) malloc(sizeof(int) * 3);
+
                 row[0] = i;
                 row[1] = j;
                 row[2] = matrix->matrix[i][j];
